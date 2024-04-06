@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
+import BookListing from './pages/auth/books/BookListing';
+import { BOOK_LISTINGS, LOGIN, REGISTER, ADD_BOOK, UPDATE_BOOK, VIEW_BOOK} from './helper/routeConstants';
+import AddUpdateBook from './pages/auth/books/AddUpdateBook';
+import BookDetail from './pages/auth/books/BookDetail';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path={REGISTER} element={ <Register /> } />
+        <Route path={LOGIN} element={ <Login /> } />
+        <Route path={BOOK_LISTINGS} element={ <BookListing /> } />
+        <Route path={ADD_BOOK} element={ <AddUpdateBook /> } />
+        <Route path={UPDATE_BOOK} element={ <AddUpdateBook /> } />
+        <Route path={`${VIEW_BOOK}/:id`} element={ <BookDetail /> } />
+      </Routes>
     </div>
   );
 }
+
 
 export default App;
