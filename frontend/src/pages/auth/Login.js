@@ -5,7 +5,6 @@ import { LOGIN } from '../../helper/endPoints';
 import { Link, useNavigate } from 'react-router-dom';
 import { TOAST_FAILURE, TOAST_SUCCESS } from '../../helper/helperFunctions';
 import { BOOK_LISTINGS } from '../../helper/routeConstants';
-import { useAuth } from '../../helper/context/authContext';
 
 
 const Login = () => {
@@ -22,6 +21,7 @@ const Login = () => {
   };
 
   const submitForm = () => {
+    localStorage.setItem('isAdmin', false);
     axios.post(LOGIN, data)
     .then(response => {
       TOAST_SUCCESS(`User logged in successfully.`);

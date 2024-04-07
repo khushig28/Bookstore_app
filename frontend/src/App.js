@@ -8,13 +8,10 @@ import BookListing from './pages/auth/books/BookListing';
 import { BOOK_LISTINGS, LOGIN, REGISTER, ADD_BOOK, UPDATE_BOOK, VIEW_BOOK } from './helper/routeConstants';
 import AddUpdateBook from './pages/auth/books/AddUpdateBook';
 import BookDetail from './pages/auth/books/BookDetail';
-import ProtectedRoute from './protectedRoutes';
-import { AuthProvider } from './helper/context/authContext';
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
         <Routes>
           <Route path={REGISTER} element={<Register />} />
           <Route path={LOGIN} element={<Login />} />
@@ -23,7 +20,6 @@ function App() {
           <Route path={UPDATE_BOOK} element={<AddUpdateBook/>} />
           <Route path={`${VIEW_BOOK}/:id`} element={<BookDetail/>} />
         </Routes>
-      </AuthProvider>
     </div>
   );
 }

@@ -20,6 +20,8 @@ const Register = () => {
             [id]: value
         }));
     };
+
+
     const submitForm = () => {
         if (data.password !== data.confirmPassword) {
             setPasswordError("Passwords do not match");

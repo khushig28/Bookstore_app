@@ -156,3 +156,27 @@ body {
     width: 100%;
   }
 }
+.detail-card__container{
+  margin: 5rem 8rem 0 10rem;
+  padding: 2rem;
+  display: flex;
+ gap: 1rem;
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+}
+
+.book-details__key{
+  color: #a4a4a8;
+  font-weight: 700;
+}
+.detail-card__detail-container{
+  display: flex;
+  gap: .5rem;
+}
+.book-details__property{
+  color: black;
+  font-weight: 500;
+}
+.detail-card__header{
+  line-height: 2.5rem;
+}

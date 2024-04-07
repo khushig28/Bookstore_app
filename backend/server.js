@@ -4,7 +4,7 @@ const connectDb = require('./config/dbConnection');
 const dotenv = require("dotenv").config();
 const cors = require('cors');
 
-connectDb();
+await connectDb();
 const app = express();
 const port = process.env.PORT || 5000;
 

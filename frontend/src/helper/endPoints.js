@@ -6,3 +6,4 @@ export const BOOKS = `${defaultURL}books/getAll`
 export const BOOK = `${defaultURL}books/get`
 export const CREATE_BOOK = `${defaultURL}books/create`
 export const UPDATE_BOOK = `${defaultURL}books/update`
+export const DELETE_BOOK = `${defaultURL}books/delete`
