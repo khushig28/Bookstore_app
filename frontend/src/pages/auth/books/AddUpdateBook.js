@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CREATE_BOOK, BOOK, UPDATE_BOOK } from '../../../helper/endPoints';
 import { TOAST_FAILURE, TOAST_SUCCESS } from '../../../helper/helperFunctions';
-import {BOOK_LISTINGS} from "../../../helper/routeConstants"
+import { BOOK_LISTINGS } from "../../../helper/routeConstants";
 import "../../../styles/register.css";
 
 const AddUpdateBook = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState({ title: "", author: "", isbn: "", description: "", imgUrl: "" });
+    const [data, setData] = useState({ title: "", author: "", isbn: "", description: "", imageUrl: "" });
     const [book, setBook] = useState(null);
 
     const handleChange = (e) => {
@@ -20,7 +20,8 @@ const AddUpdateBook = () => {
         }));
     };
 
-    const submitForm = () => {
+
+    const submitForm = async () => {
         if (data.password !== data.confirmPassword) {
             return;
         } else {
@@ -63,7 +64,7 @@ const AddUpdateBook = () => {
     };
 
     useEffect(() => {
-        if(id){
+        if (id) {
             getBook();
         }
     }, [id]);
@@ -73,7 +74,7 @@ const AddUpdateBook = () => {
             setData(book);
         }
     }, [book]);
-
+    
     return (
         <section className="vh-100 bg-image">
             <div className="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -104,6 +105,11 @@ const AddUpdateBook = () => {
                                             <input type="text" id="description" className="form-control form-control-lg" value={data.description} onChange={handleChange} />
                                         </div>
 
+                                        <div className="form-outline mb-4">
+                                            <label className="form-label" htmlFor="description">Image URL</label>
+                                            <input type="text" id="imageUrl" className="form-control form-control-lg" value={data.imageUrl} onChange={handleChange} />
+                                        </div>
+
                                         <div className="d-flex justify-content-center">
                                             <button type="button" onClick={submitForm} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">{id ? "Update Book" : "Add Book"}</button>
                                         </div>
@@ -119,3 +125,4 @@ const AddUpdateBook = () => {
 }
 
 export default AddUpdateBook;
+

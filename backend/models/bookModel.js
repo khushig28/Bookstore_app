@@ -21,8 +21,7 @@ const bookSchema = mongoose.Schema(
      required: [true, "Please add a description for the book"],
    },
    imageUrl: {
-     type: String,
-    
+     type: String
    },
  },
  {

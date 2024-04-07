@@ -1,0 +1,16 @@
+.navbar-container{
+    padding: 1rem !important;
+    background-color: #eaeaed;
+}
+.logo-container{
+    display: flex;
+    gap: 1rem
+}
+.brand-name{
+    letter-spacing: 2px;
+}
+.brand-name__container{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}

@@ -5,6 +5,7 @@ import { LOGIN } from '../../helper/endPoints';
 import { Link, useNavigate } from 'react-router-dom';
 import { TOAST_FAILURE, TOAST_SUCCESS } from '../../helper/helperFunctions';
 import { BOOK_LISTINGS } from '../../helper/routeConstants';
+import { useAuth } from '../../helper/context/authContext';
 
 
 const Login = () => {
@@ -22,14 +23,17 @@ const Login = () => {
 
   const submitForm = () => {
     axios.post(LOGIN, data)
-      .then(response => {
-        TOAST_SUCCESS(`User registered successfully.`);
-          navigate(BOOK_LISTINGS)
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-        TOAST_FAILURE("Unable to login");
-      });
+    .then(response => {
+      TOAST_SUCCESS(`User logged in successfully.`);
+      if(response.data.isAdmin === true){
+        localStorage.setItem('isAdmin', true);
+      }
+      navigate(BOOK_LISTINGS);
+    })
+    .catch(error => {
+      console.error('There was an error!', error);
+      TOAST_FAILURE("Unable to login");
+    });
   }
     
 
